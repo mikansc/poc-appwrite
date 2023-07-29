@@ -1,0 +1,71 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.field-group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.field-group input,
+.field-group textarea,
+.field-group select {
+  font: inherit;
+  padding: 0.35rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.field-group input:focus,
+.field-group textarea:focus,
+.field-group select:focus {
+  outline: none;
+  border-color: #4f005f;
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.action button,
+.action input[type="submit"],
+.action input[type="reset"],
+.action input[type="button"] {
+  // a blue hue button
+  color: #fff;
+  background-color: #00295f;
+  border: 1px solid #00295f;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.action button:disabled,
+.action input[type="submit"]:disabled,
+.action input[type="reset"]:disabled,
+.action input[type="button"]:disabled {
+  color: #999;
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
+}

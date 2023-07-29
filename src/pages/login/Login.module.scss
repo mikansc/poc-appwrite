@@ -1,0 +1,42 @@
+.googleButton {
+  display: flex;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 2px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: #357ae8;
+  }
+  &:active {
+    background-color: #1669e2;
+  }
+}
+
+.googleButton .googleLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  aspect-ratio: 1;
+  background-color: white;
+  margin-right: 10px;
+}
+
+.googleButton .googleButtonText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}

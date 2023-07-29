@@ -1,0 +1,67 @@
+.todo-count {
+  margin: 1rem 0;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #666;
+}
+
+.todo-list {
+  margin-top: 2rem;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.todo-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 200px;
+  justify-content: flex-start;
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: 1px solid #ccc;
+}
+
+.todo-header > .todo-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+.todo-header > .todo-date {
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: #666;
+}
+
+.todo-body {
+  flex: 1;
+  align-self: flex-start;
+}
+
+.todo-footer {
+  display: flex;
+  align-items: center;
+}
+
+.todo-footer > *:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.todo-footer > .todo-status {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.todo-footer > .todo-priority {
+  font-size: 0.8rem;
+  color: #666;
+}

@@ -1,0 +1,54 @@
+// header styles
+.header {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 2rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu > *:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.menu > .menu-item {
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #666;
+  cursor: pointer;
+}
+
+.menu > .menu-item:hover {
+  color: #333;
+}
+
+.menu > button.menu-item {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: underline;
+}

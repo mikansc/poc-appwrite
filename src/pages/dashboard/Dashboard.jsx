@@ -1,5 +1,6 @@
 import { Container } from "../../components/container";
 import { useTodosContext } from "../../contexts/todos";
+import { getFileUrl } from "../../services/bucket-service";
 import styles from "./Dashboard.module.scss";
 
 const toLocalDate = (date) => {
@@ -29,7 +30,15 @@ export const Dashboard = () => {
                 Previsão: {toLocalDate(todo.dueDate)}
               </span>
             </div>
-            <p className={styles["todo-body"]}>{todo.description}</p>
+            {todo.image_id && (
+              <div className={styles["todo-image"]}>
+                <img src={getFileUrl(todo.image_id)} alt="Avatar" />
+              </div>
+            )}
+            <div className={styles["todo-body"]}>
+              <h4 className={styles["todo-title"]}>{todo.title}</h4>
+              <p className={styles["todo-body"]}>{todo.description}</p>
+            </div>
             <div className={styles["todo-footer"]}>
               <span className={styles["todo-priority"]}>{todo.priority}</span>
               <span className={styles["todo-status"]}>

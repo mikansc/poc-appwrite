@@ -17,6 +17,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 1rem;
+  min-height: 120px;
 }
 
 .todo-header {
@@ -44,7 +45,6 @@
 
 .todo-body {
   flex: 1;
-  align-self: flex-start;
 }
 
 .todo-footer {
@@ -64,4 +64,24 @@
 .todo-footer > .todo-priority {
   font-size: 0.8rem;
   color: #666;
+}
+
+.todo-image {
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+  border-radius: 200px;
+}
+
+.todo-image img {
+  display: block;
+  object-fit: cover;
+}
+
+.todo-title {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.6;
+  margin-bottom: 0.25rem;
 }

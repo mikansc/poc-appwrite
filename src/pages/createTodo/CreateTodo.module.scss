@@ -69,3 +69,12 @@
   border-color: #ccc;
   cursor: not-allowed;
 }
+
+.image-preview-container {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}

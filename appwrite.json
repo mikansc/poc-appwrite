@@ -1,0 +1,21 @@
+{
+    "projectId": "64c1426541589aa80c2e",
+    "projectName": "mkweb",
+    "functions": [
+        {
+            "$id": "64cc3a0634c0c784fbca",
+            "name": "Test FN",
+            "runtime": "node-16.0",
+            "path": "functions/Test FN",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15
+        }
+    ]
+}

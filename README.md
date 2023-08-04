@@ -6,9 +6,14 @@ Este app é uma POC de utilização do [Appwrite](https://appwrite.io/).
 
 ## Features
 
+Appwrite
 - login com oAuth2 do Google
 - criação de usuário
+- autenticaçãom com e-mail e senha
 - criação de tarefa (To do)
+- storage para persistir imagem vinculada à uma tarefa
+
+Rollbar
 - Logging com [Rollbar](https://rollbar.com/)
 
 ## Como executar
@@ -23,6 +28,7 @@ Para usá-la, você precisa configurar as variáveis de ambiente (ver [.env.exam
 | MK_PROJECT_ID           | ID do projeto              |
 | MK_ROLLBAR_ACCESS_TOKEN | Token de acesso do Rollbar |
 | MK_ROLLBAR_ENV          | Ambiente do Rollbar        |
+| MK_BUCKET_ID            | ID do Storage              |
 
 Após configurar as variáveis de ambiente, execute:
 

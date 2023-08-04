@@ -5,4 +5,5 @@ export const AuthContext = createContext({
   loading: true,
   logout: () => {},
   loginWithGoogle: () => {},
+  loginWithEmail: async () => {},
 });

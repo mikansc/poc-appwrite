@@ -1,4 +1,4 @@
-import { Account } from "appwrite";
+import { Account, ID } from "appwrite";
 
 import client from "./appwrite-service";
 
@@ -22,4 +22,12 @@ export const clearSession = async () => {
 
 export const getCurrentSession = async () => {
   return await auth.getSession("current");
+};
+
+export const createUser = ({ email, password, name }) => {
+  return auth.create(ID.unique(), email, password, name);
+};
+
+export const createSession = async ({ email, password }) => {
+  return auth.createEmailSession(email, password);
 };

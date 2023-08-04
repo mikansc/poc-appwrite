@@ -12,6 +12,7 @@ import { TodosProvider } from "./contexts/todos";
 import CreateTodo from "./pages/createTodo/CreateTodo";
 import { Dashboard } from "./pages/dashboard";
 import { Login } from "./pages/login";
+import { Signup } from "./pages/signup/Signup";
 
 const SecuredRoute = () => {
   const { isLoggedIn, loading } = useAuthContext();
@@ -42,6 +43,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<SecuredRoute />}>
             <Route index element={<Dashboard />} />
             <Route path="todo/new" element={<CreateTodo />} />

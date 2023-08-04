@@ -1,28 +1,27 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useRef, useState } from "react";
-import { useMatch } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLogger } from "../../hooks/use-logger";
-import { clearSession, getCurrentSession, oauthLogin } from "../../services/auth-service";
+import { clearSession, createSession, getCurrentSession, oauthLogin } from "../../services/auth-service";
 import { AuthContext } from "./auth-context";
 
 export const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const log = useLogger("AuthProvider");
-  const isLoginPage = !!useMatch("login");
 
-  const [loading, setLoading] = useState(true);
-  const sessionId = useRef("");
-  const isLoggedIn = !!sessionId.current;
+  const [pageLoading, setPageLoading] = useState(true);
+  const [sessionId, setSessionId] = useState(null);
+  const isLoggedIn = !!sessionId;
 
   const logout = async () => {
-    sessionId.current = "";
-    setLoading(true);
-
+    setSessionId(null);
+    setPageLoading(true);
     try {
       await clearSession();
     } catch (error) {
       log.error(error, { caller: 'logout' });
     } finally {
-      setLoading(false);
+      setPageLoading(false);
     }
   };
 
@@ -34,28 +33,34 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    if (!isLoginPage) {
-
-      const getUserSession = async () => {
-        setLoading(true);
-        try {
-          const session = await getCurrentSession();
-          sessionId.current = session.$id;
-        } catch (error) {
-          log.error(error, { caller: 'useEffect > getUserSession' });
-        } finally {
-          setLoading(false);
-        }
-      };
-
-      getUserSession();
+  const loginWithEmail = async ({ email, password }) => {
+    try {
+      const session = await createSession({ email, password });
+      setSessionId(session.$id);
+      navigate("/");
+    } catch (error) {
+      log.error(error, { caller: 'loginWithEmail' });
     }
-  }, [isLoginPage, log]);
+  };
+
+  useEffect(() => {
+    setPageLoading(true);
+    const getUserSession = async () => {
+      try {
+        const session = await getCurrentSession();
+        setSessionId(session.$id);
+      } catch (error) {
+        log.error(error, { caller: 'useEffect > getUserSession' });
+      } finally {
+        setPageLoading(false);
+      }
+    };
+    getUserSession();
+  }, [log]);
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, loading, logout, loginWithGoogle }}
+      value={{ isLoggedIn, loading: pageLoading, logout, loginWithGoogle, loginWithEmail }}
     >
       {children}
     </AuthContext.Provider>

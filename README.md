@@ -13,7 +13,7 @@ Este app é uma POC de utilização do [Appwrite](https://appwrite.io/).
 
 ## Como executar
 
-Para usá-la, você precisa configurar as variáveis de ambiente (ver [.env.example](./env.example))
+Para usá-la, você precisa configurar as variáveis de ambiente (ver [.env.example](./.env.example))
 
 | Variável                | Descrição                  |
 | ----------------------- | -------------------------- |

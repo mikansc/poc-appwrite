@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Container } from "../../components/container";
 import { useTodosContext } from "../../contexts/todos";
 import { getFileUrl } from "../../services/bucket-service";
@@ -10,8 +11,12 @@ const toLocalDate = (date) => {
 };
 
 export const Dashboard = () => {
+  const navigate = useNavigate()
   const { todos, todoCount } = useTodosContext();
 
+  const handleEdit = (id) => {
+    navigate(`/todo/${id}/edit`);
+  }
   return (
     <Container>
       <h2>Tarefas</h2>
@@ -23,7 +28,7 @@ export const Dashboard = () => {
           </span>
         </div>
         {todos.map((todo) => (
-          <div className={styles["todo"]} key={todo.id}>
+          <div key={todo.$id} className={styles["todo"]}>
             <div className={styles["todo-header"]}>
               <h3 className={styles["todo-title"]}>{todo.title}</h3>
               <span className={styles["todo-date"]}>
@@ -40,10 +45,14 @@ export const Dashboard = () => {
               <p className={styles["todo-body"]}>{todo.description}</p>
             </div>
             <div className={styles["todo-footer"]}>
-              <span className={styles["todo-priority"]}>{todo.priority}</span>
+              <span className={[styles["todo-priority"], styles[todo.priority]].join(" ")}>{todo.priority}</span>
               <span className={styles["todo-status"]}>
                 {todo.completedAt ? "finalizado" : "em aberto"}
               </span>
+              <div className={styles["todo-action"]}>
+                <button className={styles["todo-edit"]} onClick={() => handleEdit(todo.$id)}>Editar</button>
+                <button className={styles["todo-delete"]}>Excluir</button>
+              </div>
             </div>
           </div>
         ))}

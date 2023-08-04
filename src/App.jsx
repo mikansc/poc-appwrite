@@ -47,6 +47,7 @@ function App() {
           <Route path="/" element={<SecuredRoute />}>
             <Route index element={<Dashboard />} />
             <Route path="todo/new" element={<CreateTodo />} />
+            <Route path="todo/:id/edit" element={<CreateTodo editMode />} />
           </Route>
           <Route path="/auth-error" element={<h1>Deu merda!</h1>} />
         </Routes>

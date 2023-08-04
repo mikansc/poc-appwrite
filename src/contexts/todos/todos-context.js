@@ -5,5 +5,9 @@ export const TodosContext = createContext({
   todoCount: 0,
   loading: false,
   loadTodos: () => {},
+  loadTodo: () => {},
   addTodo: () => {},
+  updateTodo: () => {},
+  deleteTodo: () => {},
+  editingTodo: undefined,
 });
